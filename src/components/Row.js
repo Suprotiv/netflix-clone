@@ -13,7 +13,6 @@ function Row({title,fetchURL}) {
             setMovies(response.data.results)
         })
     },[fetchURL])
-console.log(movies)
   return (
    <div>
     <h1 className='text-white text-lg md:text-2xl font-bold  my-1 md:my-8 mx-2'>{title}</h1>
