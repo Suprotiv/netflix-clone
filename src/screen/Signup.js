@@ -13,23 +13,24 @@ function Signup() {
   const navigate=useNavigate()
   const [error,setError]=useState()
 
-  const submit= async (e)=>{
-    e.preventDefault()
-    if(password===cpassword)
-    {
-      try{
-        await signup(email,password)
-        navigate('/')
-      }catch(error){
-        setError(error)
-      }
+  const submit = async (e) => {
+    e.preventDefault();
+
+    if(password===cpassword){
+    try {
+      await signup(email, password);
+      navigate('/')
+    } catch (error) {
+      setError(error);
     }
-    else{
-     setError({message: "Firebase: password doesnt match !"})
-    }
-   
-    
   }
+  else{
+    setError({message:'Firebase: Password doesnt match !'})
+  }
+  };
+  
+  
+   
   return (
     <div> 
       <Navbar/>
@@ -47,11 +48,11 @@ function Signup() {
               {
                   error ?<p className='bg-red-900 text-white p-3 rounded'>Error : {(error?.message).slice(9,)}</p>:null
               }
-          <form className='w-full flex flex-col  py-4'>
+          <form className='w-full flex flex-col  py-4' onSubmit={submit}>
             <input className='bg-gray-600 py-2 my-2 px-2' placeholder='Enter email' value={email} onChange={(e)=>setEmail(e.target.value)}></input>
             <input className='bg-gray-600 py-2 my-2 px-2' placeholder='Enter password' value={password} onChange={(e)=>setPassword(e.target.value)} type='password'></input>
             <input className='bg-gray-600 py-2 my-2 px-2' placeholder='Confirm password' value={cpassword} onChange={(e)=>setCPassword(e.target.value)} type='password'></input>
-            <button className='bg-red-600 py-4 my-4 rounded' onClick={submit}>Sign up</button>
+            <button className='bg-red-600 py-4 my-4 rounded' >Sign up</button>
             <div className='flex justify-between'>
             <p className='flex items-center'><input type='checkbox' className='mr-2'></input> 
             <p className='text-sm'>Remember me </p>

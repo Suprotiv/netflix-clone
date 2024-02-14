@@ -11,20 +11,17 @@ const[movies,setmovies]=useState([])
 const[fullstr,setfullstr]=useState(false)
 const [check,setCheck]=useState(true)
 
- let movie
 useEffect(()=>{
     axios.get(request.requestPopular).then((response)=>{
         setmovies(response.data.results)
        
     })
-   
+   setCheck(false)
   
 },[])
-{
-  movie=movies[Math.floor((Math.random())* movies.length)]
- 
 
-}
+ const movie=movies[Math.floor((Math.random())* movies.length)]
+ 
 
 
 
@@ -32,7 +29,6 @@ useEffect(()=>{
 const showfullstr = (e) => {
     e.preventDefault();
     setfullstr(true);
-    setCheck(false);
 };
 
 const replaceString=(str,num)=>{

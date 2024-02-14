@@ -12,6 +12,7 @@ import Login from './screen/Login';
 import Signup from './screen/Signup';
 import Account from './screen/Account';
 import { AuthContextProvider } from './context/Authcontext';
+import ProtectedRoute from './components/protectedRoute';
 
 
 const router = createBrowserRouter([
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/account",
-    element:<Account/>,
+    element:<ProtectedRoute><Account/></ProtectedRoute>,
   },
 ]);
 

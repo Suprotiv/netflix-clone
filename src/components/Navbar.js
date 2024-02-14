@@ -18,7 +18,6 @@ function Navbar() {
       console.log(error)
     }
   }
-  console.log(user)
   return (
     < div >
       { user ? 
