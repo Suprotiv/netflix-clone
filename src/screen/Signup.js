@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/Authcontext'
+import { doc, setDoc } from 'firebase/firestore'
+import { db } from '../firebase'
 
 
 function Signup() {
@@ -19,6 +21,9 @@ function Signup() {
     if(password===cpassword){
     try {
       await signup(email, password);
+      setDoc(doc(db, 'users', email), {
+        savedShows: []
+    })
       navigate('/')
     } catch (error) {
       setError(error);

@@ -47,6 +47,7 @@ function Movie({item}) {
             img: item.backdrop_path,
           }),
         });
+       
       }
       else {
         await updateDoc(movieID, {
@@ -56,6 +57,7 @@ function Movie({item}) {
             img: item.backdrop_path,
           }),
         });
+        alert(`${item.title} removed from  your watchlist !`)
       }
         
       

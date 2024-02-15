@@ -22,13 +22,11 @@ export function AuthContextProvider({children})
     function signup(email,password){
         
         try{
-        setDoc(doc(db, 'users', email), {
-            savedShows: []
-        })
-        return createUserWithEmailAndPassword(auth,email,password);
+         return createUserWithEmailAndPassword(auth,email,password);
+       
     }catch(error)
     {
-        console.log(error)
+        return error
     }
 
     }

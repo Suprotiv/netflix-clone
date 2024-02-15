@@ -50,7 +50,7 @@ console.log(movies)
             <SavedShows item={item}/>
 
         )) : 
-        <p className='text-gray-600 text-3xl flex justify-center items-center  h-[20vh] w-[95vw]'>Nothing to show !</p>}
+        <p className='text-gray-600 text-3xl flex justify-center items-center  h-[20vh] w-[90vw]'>Nothing to show !</p>}
 
         </div>
         </div>
