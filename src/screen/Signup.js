@@ -21,7 +21,7 @@ function Signup() {
     if(password===cpassword){
     try {
       await signup(email, password);
-      setDoc(doc(db, 'users', email), {
+      setDoc(doc(db, 'users', email.toLowerCase()), {
         savedShows: []
     })
       navigate('/')
